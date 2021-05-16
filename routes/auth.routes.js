@@ -37,8 +37,7 @@ router.route('/signup')
     const profilePicture = 'https://res.cloudinary.com/dmmhvh1ai/image/upload/v1621011645/no-profile-picture_z56xhn.jpg'
     const balance = 0
     bcrypt
-      .genSalt(saltRounds)
-      .then(salt => bcrypt.hash(password, salt))
+      .hash(password, saltRounds)
       .then(hashedPassword => {
         return User.create({
           name,
@@ -51,6 +50,7 @@ router.route('/signup')
         })
       })
       .then(userFromDB => {
+        console.log('user created succesfully')
         res.redirect('/login')
         return
       })
@@ -87,7 +87,7 @@ router.route('/login')
 
     User.findOne({ email })
       .then((userFound) => {
-
+        console.log('user found:',userFound._id)
         if (!userFound) {
           res.render('auth/login', {
             errorMessage: 'The email is not registered'
@@ -95,7 +95,7 @@ router.route('/login')
           return
         } else if (bcrypt.compareSync(password, userFound.hashedPassword)) {
           req.session.currentUser = userFound
-          res.redirect('/userProfile')
+          res.redirect(`/userProfile/${userFound._id}`)
         } else {
           res.render('auth/login', {
             errorMessage: 'Incorrect password.'
@@ -104,10 +104,6 @@ router.route('/login')
       })
       .catch(error => next(error))
   })
-
-router.get('/userProfile', (req, res) => {
-  res.render('users/user-profile', {userInSession: req.session.currentUser})
-})
 
 router.post('/logout', (req, res) => {
   req.session.destroy()
