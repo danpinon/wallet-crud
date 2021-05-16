@@ -1,0 +1,87 @@
+body {
+  padding: 0;
+  margin: 0;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+  text-decoration: none;
+}
+
+h2 {
+  margin-top: 1em;
+  text-align: center;
+}
+
+/* LAYOUT */
+nav {
+  height: 6em;
+  background-color: #072146 !important;
+  color: #FFF !important;
+}
+
+
+.navbar-items {
+  margin: 0 18%;
+}
+
+.open-acc {
+  color: #F7CD52 !important;
+  font-size: 17px;
+}
+
+.open-acc:hover {
+  color: #FFF !important;
+}
+
+.btn-primary {
+  border: none;
+  padding: 15px 25px;
+  background: #028484;
+
+  background: linear-gradient(to left, #028484 50%, #50a8a7 50%) right;
+  background-size: 200%;
+  transition: .5s ease-out
+}
+
+.btn-primary:hover {
+  background-position: left;
+}
+
+/* FORMS */
+.btn-secondary {
+  background-color: #237ABA;
+  border: none;
+  padding: 10px 20px
+}
+
+.btn-secondary:hover {
+  background-color: #4198d6;
+}
+
+
+@media (max-width: 2000px) {
+  .form-container {
+    margin: 0 25%;
+  }
+}
+
+@media (max-width: 900px) {
+  .form-container {
+    margin: 0 15%;
+  }
+
+  .btn-secondary {
+    width: 100%;
+  }
+}
+
+/* USER PROFILE PAGE */
+.card-container {
+  margin-top: 1em;
+}
+
+.acc-btn {
+  padding: 5px 10px;
+}
