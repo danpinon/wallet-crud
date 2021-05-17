@@ -13,7 +13,8 @@ router.route('/transfer/:id')
         const { id } = req.params
         User.findById(id)
         .then(theUser => {
-            res.render('operations/transfer', {
+            console.log('user xx:', theUser)
+            res.render('operations/transfer/transfer', {
                 user: theUser,
                 userInSession: req.session.currentUser
             })
@@ -21,7 +22,39 @@ router.route('/transfer/:id')
         
     })
     .post((req, res, next)=>{
+        const { id } = req.params
+        User.findById(id)
+    })
+
+    router.route('/transfer/:id/transfer-ian')
+    .get((req, res, next) => {
+        const { id } = req.params
+        User.findById(id)
+        .then(theUser => {
+            res.render('operations/transfer/transfer-ian', {
+                user: theUser,
+                userInSession: req.session.currentUser
+            })
+        })
         
     })
+    .post((req, res, next)=>{
+        const { id } = req.params
+        User.findById(id)
+    })
+
+    router.route('/transfer/:id/:dest-acc-num')
+        .get((req, res, next) => {
+            const { accountNumber } = req.params
+            console.log(req.params)
+            User.findOne({ accountNumber })
+            .then(theDestinatary => {
+                res.render('operations/transfer/destinatary', {
+                    destinatary: theDestinatary,
+                    userInSession: req.session.currentUser
+                })
+            })
+        })
+
 
 module.exports = router;
