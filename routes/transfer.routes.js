@@ -47,11 +47,14 @@ router.route('/transfer/:id')
     router.route('/transfer/:id/search/')
         .get((req, res, next) => {
             const { destAccNum } = req.query
+            const{ id } = req.params
             console.log('request:', req.query)
+            console.log('origin id:', id)
             User.findOne({ destAccNum })
             .then(theDestinatary => {
                 console.log('theDestinatary', theDestinatary)
                 res.render('operations/transfer/transfer-destinatary', {
+                    userId: id,
                     destinatary: theDestinatary,
                     userInSession: req.session.currentUser
                 })

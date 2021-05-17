@@ -3,7 +3,7 @@
 <p>{{destinatary.name}}</p>
 <p>{{destinatary.lastName}}</p>
 <p>Account Number: {{destinatary.accountNumber}}</p>
-<form action="/transfer/:id/search/:destAccNum/amount" method="POST">
+<form action="/transfer/{{userId}}/search/{{destinatary.accountNumber}}/amount" method="POST">
   <button method="submit">submit</button>
 </form>
 
