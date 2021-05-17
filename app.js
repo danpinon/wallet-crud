@@ -59,4 +59,7 @@ app.use('/', user)
 const transfer = require('./routes/transfer.routes')
 app.use('/', transfer)
 
+const history = require('./routes/history.routes')
+app.use('/', history)
+
 module.exports = app;
