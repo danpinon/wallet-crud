@@ -151,4 +151,61 @@ nav ul, nav li {
   src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
 }
 
+/* HOME */
+.container {
+    margin: auto;
+    width: 80%;
+    /* border: 1px dotted crimson; */
+    padding: 10px;
+}
+
+.carousel {
+    margin: auto;
+    width: 70%;
+}
+
+.home-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 3em 0;
+    padding: 0 30rem;
+    /* border: 1px dotted black; */
+}
+
+.btn-login {
+    background: #2997f1;
+    color: #fff;
+    border: none;
+    width: 90px;
+    height: 90px;
+}
+
+.btn-login:hover {
+    background: #49a5f0;
+    color: #fff;
+    border: none;
+}
+
+.btn-signup {
+    background: #ffbe32;
+    color: #fff;
+    border: none;
+    width: 90px;
+    height: 90px;
+}
+
+.btn-signup:hover {
+    background: #f8c659;
+    color: #fff;
+    border: none;
+}
+
+.btn-settings {
+    min-height: 100vh; 
+    display: flex;
+      justify-content: center;
+    align-items: center;
+}
+
 /*  */
