@@ -1,7 +1,7 @@
 const { Router } = require('express')
 const router = new Router()
 
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcrypt')
 const saltRounds = 10
 
 const User = require('../models/User.model')
