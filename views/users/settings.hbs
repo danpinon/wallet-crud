@@ -1,12 +1,12 @@
 {{#if userInSession}}
   <div class="container">
     <h2 style="margin-bottom: 3rem;">Settings</h2>
-    <form action="/user/{{userInSession.id}}/settings" method="POST">
+    <form action="/user/{{user.id}}/settings" method="POST">
       <div class="mb-3"></div>
       <div class="mb-3">
         <label for="image">Update profile picture:</label>
         <input type="file" name="image" id="image" class="form-control-file">
-        <input type="text" name="existingImage" hidden id="" value="{{userInSession.profilePicture}}">
+        <input type="text" name="existingImage" hidden id="" value="{{user.profilePicture}}">
       </div>
       <button class="btn btn-secondary rounded-0">Submit</button>
     </form>

@@ -9,14 +9,29 @@ const fileUploader = require('../configs/cloudinary.config')
 
 // ROUTES
 
+router.get('/userProfile/:id', (req, res) => {
+  const { id } = req.params
+  User.findById(id)
+    .then(theUser => {
+      res.render('users/user-profile', {
+        user: theUser,
+        userInSession: req.session.currentUser
+      })
+    })
+
+})
+
 // IMAGE UPDATE NOT WORKING //
-router.route('/user/:id/settings')
+router.route('/settings/:id')
   .get((req, res, next) => {
     const { id } = req.params
     User.findById(id)
       .then(theUser => {
         req.session.currentUser = theUser
-        res.render('users/edit-profile', {userInSession: req.session.currentUser})
+        res.render('users/settings', {
+          user: theUser,
+          userInSession: req.session.currentUser
+        })
       })
       .catch(error => {
         console.log('Error on edit user:', error)
