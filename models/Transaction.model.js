@@ -21,4 +21,4 @@ const transactionSchema = new Schema(
   }
 )
 
-module.exports = model('Transactions', transactionSchema)
+module.exports = model('Transaction', transactionSchema)

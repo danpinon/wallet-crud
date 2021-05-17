@@ -2,7 +2,7 @@ const { Router } = require('express')
 const router = new Router()
 
 const User = require('../models/User.model')
-const Transactions = require('../models/Transactions.model')
+const Transactions = require('../models/Transaction.model')
 const mongoose = require('mongoose')
 
 const fileUploader = require('../configs/cloudinary.config')
