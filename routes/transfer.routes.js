@@ -8,10 +8,17 @@ const mongoose = require('mongoose')
 const fileUploader = require('../configs/cloudinary.config')
 
 
-router.route('/transfer')
+router.route('/transfer/:id')
     .get((req, res, next) => {
-        console.log(req.session.currenUser)
-        res.render('operations/transfer')
+        const { id } = req.params
+        User.findById(id)
+        .then(theUser => {
+            res.render('operations/transfer', {
+                user: theUser,
+                userInSession: req.session.currentUser
+            })
+        })
+        
     })
     .post((req, res, next)=>{
         
