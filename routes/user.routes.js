@@ -27,6 +27,7 @@ router.route('/settings/:id')
     const { id } = req.params
     User.findById(id)
       .then(theUser => {
+       
         req.session.currentUser = theUser
         res.render('users/settings', {
           user: theUser,
