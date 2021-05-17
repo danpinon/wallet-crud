@@ -9,7 +9,7 @@ const fileUploader = require('../configs/cloudinary.config')
 
 // ROUTES
 
-router.get('/userProfile/:id', (req, res) => {
+router.get('/account/:id', (req, res) => {
   const { id } = req.params
   User.findById(id)
     .then(theUser => {
@@ -46,7 +46,7 @@ router.route('/settings/:id')
     console.log(req.file)
     console.log('---------------------')
     // User.findByIdAndUpdate(id, { profilePicture: req.file.path }, { new: true })
-    //   .then(() => res.redirect('/userProfile'))
+    //   .then(() => res.redirect('/account'))
     //   .catch(error => console.log(`Error while updating user: ${error}`))
   })
 
