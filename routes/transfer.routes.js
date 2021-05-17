@@ -62,7 +62,9 @@ router.route('/transfer/:id')
         })
 
     router.route('/transfer/:id/search/:destAccNum/amount')
+    
         .get((req, res, next) => {
+            console.log('accesing to amount')
             res.render('operations/transfer/transfer-amount')
         })
 
